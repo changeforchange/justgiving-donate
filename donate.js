@@ -15,10 +15,6 @@ casper.start(url, function() {
 
   this.echo(this.getTitle());
 
-  if (this.exists('.awesome-continue-button')) {
-    console.log('Ready to go!');
-  }
-
 });
 
 casper.waitForSelector('.awesome-continue-button').thenClick('.awesome-continue-button', function() {
@@ -61,6 +57,7 @@ casper.waitForSelector('#donate-now-button').thenClick('#donate-now-button', fun
 
 casper.waitForSelector('#donation-confir-status').then(function() {
   console.log('confirmed!');
+  this.exit(0); // Whooo it worked!
 });
 
 casper.run();
